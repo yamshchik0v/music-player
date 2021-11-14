@@ -13,7 +13,44 @@
 <body>
 
    <h1 class="title">Music player</h1>
+   <main class="player">
+      <section class="player-header">
+         <i class="arrow fas fa-chevron-left"></i>
+         <h2 class="player-title">Now Playing</h2>
+         <i class="dots fas fa-ellipsis-h"></i>
+      </section>
+      <section class="cover"><img src="img/img-1.jpg" alt="" id="player-cover">
+      </section>
+      <section id="song-info" class="song-info">
+         <p class="song-name" id="name">Mega drum'n'bass — Bon Jovi</p>
+         <p class="song-artist" id="artist">Bon Jovi</p>
+      </section>
+      <source src="#">
+      </audio>
+      <section class="progress-block">
+         <div id="progress-bar" class="progress-bar"></div>
+      </section>
+      <section class="time-block">
+         <span id="song-time" class="time-el">02:37</span>
+         <span id="song-duration" class="time-el">05:15</span>
+      </section>
+      <ul class="media-controls">
+         <li class="player-button"><i id="loop" class="fas fa-infinity"></i></li>
 
+         <li class="player-button"><i id="bwd" class="fas fa-backward"></i></li>
+
+         <li class="player-button"><i id="play" class="fas fa-play"></i></li>
+
+
+         <li class="player-button"><i id="fwd" class="fas fa-forward"></i></li>
+
+         <li class="player-button"><i id="vol" class="fas fa-volume-up"></i></li>
+
+      </ul>
+   </main>
+
+   <script src="script/script.js"></script>
+   <script src="script/songList.js"></script>
 </body>
 
 </html>
