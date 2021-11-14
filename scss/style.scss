@@ -1,0 +1,201 @@
+@import "_nullstyle";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
+@import "_mixin";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 32px;
+  flex-flow: column nowrap;
+}
+
+.title {
+   margin: 15px 0;
+   color: teal;
+   text-align: center;
+   font-weight: 700;
+}
+
+.player {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   margin: 0 auto;
+
+   border-radius: .5em;
+   box-shadow: .2em .2em .6em grey;
+   padding: 25px 30px;
+   background: #f8f5c2;
+   // background: linear-gradient(17deg, #011120, #062b4d, #be2c2c, #191b7e, #2124cf); // 
+
+   display: flex;
+   flex-flow: column;
+   justify-content: center;
+   width: 340px;
+   .player-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 10px;
+      color: rgba(73, 69, 69, 0.9);
+
+      i {
+         cursor: pointer;
+         transform: scale(.7);
+         @include transitionHov( .1s, color, linear);
+         &:hover {
+            color: #d62e4a
+         }
+
+      }
+
+      .player-title {
+         text-align: center;
+         font-size: .5em;
+         font-weight: 700;
+         cursor: default;
+      }
+   }
+
+   .cover {
+      border-radius: .3em;
+      overflow: hidden;
+      background: cover center;
+      height: 230px;
+      width: 90%;
+      margin: 10px auto;
+      background: rgb(255, 255, 255);
+      box-shadow: 0 0 .2em .1em grey;
+
+      img {
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+      }
+   }
+
+   .song-info {
+      text-align: center;
+      margin: 15px 0 20px;
+      color: black;
+      .song-name{
+         display: block;
+         margin-bottom: 10px;
+         font-size: .5em;
+         font-weight: 500;
+         opacity: 0.9;
+         cursor: default;
+         @include transitionHov( .1s, color, linear);
+         &:hover {
+            
+            color: #d62e4a;
+         }
+      }
+      .song-artist{
+         display: block;
+         font-size: .6em;
+         cursor: pointer;
+         font-weight: 500;
+         opacity: 0.9;
+         transition: .3s all;
+         &:hover {
+
+            color: #d62e4a;
+         }
+      }
+      
+   }
+
+   .progress-block {
+      height: 4px;
+      width: 100%;
+      background: rgba(128, 128, 128, .8);
+      border-radius: 30px;
+      cursor: pointer;
+
+      .progress-bar {
+         height: 100%;
+         width: 50%;
+         background: #d62e4a;
+         border-radius: 1em;
+         
+         position: relative;
+
+         &::after{
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color:  #d62e4a;
+            top: 50%;
+            right: -5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 0;
+            border-left: none;
+            @include transitionHov( .1s, opacity, linear);
+
+         }
+
+      }      
+
+      &:hover .progress-bar::after {
+         opacity: 1
+      }
+   }
+
+   
+   .time-block {
+      margin: 5px 0 ;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      span {
+         font-size: .45em;
+         font-weight: 600;
+         cursor: default;
+         @include transitionHov( .1s, color, linear);
+         &:hover {
+            color: #d62e4a;
+         }
+      }
+      
+
+   }
+
+
+   .media-controls {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 0;
+
+      i{
+         transform: scale(.8);
+         color:rgba(73, 69, 69, 0.9);
+         cursor: pointer;
+         @include  transitionHov( .1s, color, linear);
+
+         &:active {
+            transform: scale(.7);
+         }
+
+         &:hover {
+            color: #d62e4a;
+         }
+
+         
+      }
+
+   }
+}
+
