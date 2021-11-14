@@ -1,0 +1,12 @@
+@mixin flex ($jc, $ai, $fdir) {
+   display: flex;
+   justify-content: $jc;
+   align-items: $ai;
+   flex-direction: $fdir;
+}
+
+@mixin transitionHov ($dur, $for, $tfunc) {
+   transition-property: $for;
+   transition-timing-function: $tfunc;
+   transition-duration: $dur;
+}
