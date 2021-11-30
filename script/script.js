@@ -1,4 +1,5 @@
 const player = document.querySelector('.player')
+const userVolume = JSON.parse(window.localStorage.getItem('user-volume'))
 // song info
 
 const title = document.getElementById('pTitle')
@@ -8,6 +9,7 @@ const songArtist = document.getElementById('artist')
 
 // audio controls
 const audioElement = document.getElementById('audio')
+const loopBtn = document.getElementById('loop')
 const playAndPause = document.getElementById('play')
 const nextBtn = document.getElementById('fwd')
 const prevBtn = document.getElementById('bwd')
@@ -23,7 +25,9 @@ let songIndex = 0;
 
 window.addEventListener("load", () => {
    loadSong(songIndex)
-   setVolume()
+   if (userVolume) audioElement.volume = userVolume
+   volumeInput.value = userVolume * 100
+   console.log(userVolume)
 })
 
 // function that load music
@@ -68,6 +72,11 @@ function nextSong() {
 }
 
 function prevSong() {
+   if (audioElement.currentTime > 5) {
+      audioElement.currentTime = 0
+      return
+   }
+
    songIndex <= 0 ? songIndex = (music.length - 1) : songIndex--
    console.log(songIndex)
 
@@ -144,6 +153,9 @@ function setVolume() {
 }
 volumeInput.addEventListener('input', (e) => {
    let volume = setVolume()
+   window.localStorage.setItem('user-volume', volume)
+
+
    if (!volume) {
       audioElement.muted = true
       volumeBtn.classList.add('fa-volume-mute')
@@ -163,12 +175,12 @@ volumeInput.addEventListener('input', (e) => {
 })
 
 volumeBtn.addEventListener('click', (e) => {
-   if (audioElement.muted) {
-      audioElement.muted = false
-      volumeBtn.classList.remove('fa-volume-mute')
+   audioElement.muted = !audioElement.muted
+   volumeBtn.classList.toggle('fa-volume-mute')
+})
 
-   } else {
-      audioElement.muted = true;
-      volumeBtn.classList.add('fa-volume-mute')
-   }
+// loop
+loopBtn.addEventListener('click', () => {
+   loopBtn.classList.toggle('loop-track')
+   audioElement.loop = !audioElement.loop
 })
