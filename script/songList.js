@@ -12,14 +12,14 @@ const music = [
       src: "mus-2"
    },
    {
-      name: "In And Out Of Love",
-      artist: "Armin van Buuren",
+      name: "Witchcraft",
+      artist: "Pendulum",
       cover: "img-3",
       src: "mus-3"
    },
    {
-      name: "In And Out Of Love",
-      artist: "Armin van Buuren",
+      name: "Don't Tell Me",
+      artist: "Tall Order",
       cover: "img-4",
       src: "mus-4"
    },
