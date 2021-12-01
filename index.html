@@ -6,51 +6,54 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
    <title>Music player</title>
-
 </head>
 
 <body>
 
-   <h1 class="title">Music player</h1>
    <main class="player">
       <section class="player-header">
          <i class="arrow fas fa-chevron-left"></i>
-         <h2 class="player-title">Now Playing</h2>
+         <h2 class="player-title" id="pTitle">Now Playing</h2>
          <i class="dots fas fa-ellipsis-h"></i>
       </section>
-      <section class="cover"><img src="img/img-1.jpg" alt="" id="player-cover">
+      <section class="cover"><img src="" alt="" id="player-cover">
       </section>
       <section id="song-info" class="song-info">
-         <p class="song-name" id="name">Mega drum'n'bass — Bon Jovi</p>
-         <p class="song-artist" id="artist">Bon Jovi</p>
+         <p class="song-name" id="name"></p>
+         <p class="song-artist" id="artist"></p>
       </section>
       <source src="#">
-      </audio>
-      <section class="progress-block">
+      <audio id="audio" class="paused" src=""></audio>
+      <section class="progress-block" id="progress-block">
          <div id="progress-bar" class="progress-bar"></div>
       </section>
       <section class="time-block">
-         <span id="song-time" class="time-el">02:37</span>
-         <span id="song-duration" class="time-el">05:15</span>
+         <span id="audio-atm" class="time-el"></span>
+         <span id="audio-duration" class="time-el"></span>
       </section>
       <ul class="media-controls">
-         <li class="player-button"><i id="loop" class="fas fa-infinity"></i></li>
+         <li class="player-button"><i id="loop" title="loop current track" class="fas fa-infinity"></i></li>
 
          <li class="player-button"><i id="bwd" class="fas fa-backward"></i></li>
 
          <li class="player-button"><i id="play" class="fas fa-play"></i></li>
 
-
          <li class="player-button"><i id="fwd" class="fas fa-forward"></i></li>
 
-         <li class="player-button"><i id="vol" class="fas fa-volume-up"></i></li>
+         <li class="player-button"><i id="vol" class="fas fa-volume-up"></i>
+            <div class="volume-block"><input type="range" id="volume-input" min="0" max="100"></div>
+         </li>
+
 
       </ul>
    </main>
 
-   <script src="script/script.js"></script>
    <script src="script/songList.js"></script>
+   <script src="script/script.js"></script>
 </body>
 
 </html>

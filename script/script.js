@@ -181,6 +181,8 @@ volumeBtn.addEventListener('click', (e) => {
 
 // loop
 loopBtn.addEventListener('click', () => {
-   loopBtn.classList.toggle('loop-track')
+   audioElement.loop ? loopBtn.title = "loop current track" : loopBtn.title = "track looped"
    audioElement.loop = !audioElement.loop
+   loopBtn.classList.toggle('loop-track')
 })
+
