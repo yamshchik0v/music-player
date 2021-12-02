@@ -33,8 +33,8 @@ html, body {
    border-radius: .5em;
    box-shadow: .2em .2em .6em grey;
    padding: 25px 30px;
-   background: #f8f5c2;
-   // background: linear-gradient(17deg, #011120, #062b4d, #be2c2c, #191b7e, #2124cf); // 
+   // background: #f8f5c2;
+   background: linear-gradient(73deg, #f5e2d4, #f5cbaf, #ff9688); 
 
    display: flex;
    flex-flow: column;
@@ -62,7 +62,7 @@ html, body {
          font-size: .5em;
          font-weight: 700;
          cursor: default;
-      }
+         }
    }
 
    .cover {
@@ -93,15 +93,19 @@ html, body {
          font-weight: 500;
          opacity: 0.9;
          cursor: default;
+         min-width: 100%;
+         max-height: .5em;
+         white-space: nowrap;
          @include transitionHov( .1s, color, linear);
-         &:hover {
-            
+         &:hover {   
             color: #d62e4a;
          }
       }
       .song-artist{
          display: block;
          font-size: .6em;
+         max-height: 1em;
+         overflow: hidden;
          cursor: pointer;
          font-weight: 500;
          opacity: 0.9;
@@ -117,13 +121,13 @@ html, body {
    .progress-block {
       height: 4px;
       width: 100%;
-      background: rgba(128, 128, 128, .8);
+      background: rgba(128, 128, 128, 0.7);
       border-radius: 30px;
       cursor: pointer;
 
       .progress-bar {
          height: 100%;
-         width: 50%;
+         width: 0%;
          background: #d62e4a;
          border-radius: 1em;
          
@@ -178,6 +182,13 @@ html, body {
       display: flex;
       justify-content: space-between;
       margin: 20px 0 0;
+      
+      .player-button {
+         position: relative;
+         min-width: 20%;
+         display: flex;
+         justify-content: center;
+      }
 
       i{
          transform: scale(.8);
@@ -186,7 +197,7 @@ html, body {
          @include  transitionHov( .1s, color, linear);
 
          &:active {
-            transform: scale(.7);
+            transform: scale(.75);
          }
 
          &:hover {
@@ -196,6 +207,38 @@ html, body {
          
       }
 
+      .loop-track {
+         color: crimson;
+      }
+
+      .volume-block {
+         display: none;
+         justify-content: center;
+         align-items: center;
+         position: absolute;
+         width: 150px;
+         height: 20px;
+         top: 50%;
+         right: 0;
+         transform: translate(100%, -50%);
+         background: linear-gradient(-73deg, #f5e2d4, #f5cbaf, #ff9688); 
+         border: 1px solid rgba(165, 165, 165,.5);
+         border-radius: .3em;
+         padding: 0 15px;
+         margin-left: 50px;
+      }
+      #volume-input {
+         -webkit-appearance: none;
+         width: 100%;
+         height: 3px;
+         background: rgba(128, 128, 128, 0.7); 
+      }
+     
+
+      .player-button:hover .volume-block {
+         display: flex;
+      }
+      
    }
 }
 
