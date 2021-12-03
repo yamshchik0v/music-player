@@ -1,4 +1,4 @@
-export const music = [
+const music = [
    {
       name: "In And Out Of Love",
       artist: "Armin van Buuren",

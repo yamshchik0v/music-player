@@ -1,5 +1,5 @@
 const player = document.querySelector('.player')
-import music from './songList.js'
+console.log(music)
 // const trackListElem = document.getElementById('.player-list')
 // const openListElem = document.getElementById('.open-list')
 const userVolume = JSON.parse(window.localStorage.getItem('user-volume'))
