@@ -1,4 +1,6 @@
 const player = document.querySelector('.player')
+// const trackListElem = document.getElementById('.player-list')
+// const openListElem = document.getElementById('.open-list')
 const userVolume = JSON.parse(window.localStorage.getItem('user-volume'))
 // song info
 
@@ -204,5 +206,11 @@ loopBtn.addEventListener('click', () => {
    audioElement.loop ? loopBtn.title = "loop current track" : loopBtn.title = "track looped"
    audioElement.loop = !audioElement.loop
    loopBtn.classList.toggle('loop-track')
+})
+
+// track list functionality
+
+openListElem.addEventListener('click', () => {
+   trackListElem.classList.toggle('opened')
 })
 

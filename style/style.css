@@ -109,7 +109,7 @@ html, body {
   -webkit-box-shadow: .2em .2em .6em grey;
           box-shadow: .2em .2em .6em grey;
   padding: 25px 30px;
-  background: linear-gradient(73deg, #f5e2d4, #f5cbaf, #ff9688);
+  background: wheat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,6 +177,17 @@ html, body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: -webkit-transform .8s ease-out;
+  transition: -webkit-transform .8s ease-out;
+  transition: transform .8s ease-out;
+  transition: transform .8s ease-out, -webkit-transform .8s ease-out;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.player .cover img:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .player .song-info {
@@ -188,7 +199,6 @@ html, body {
 
 .player .song-info .song-name {
   display: block;
-  margin-bottom: 10px;
   font-size: .5em;
   font-weight: 500;
   opacity: 0.9;
@@ -212,6 +222,7 @@ html, body {
   display: block;
   font-size: .6em;
   max-height: 1em;
+  margin-top: 15px;
   cursor: pointer;
   white-space: nowrap;
   font-weight: 500;
@@ -429,8 +440,8 @@ html, body {
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-30%);
-            transform: translateX(-30%);
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
   }
 }
 
@@ -440,7 +451,7 @@ html, body {
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-30%);
-            transform: translateX(-30%);
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
   }
 }

@@ -24,8 +24,8 @@ const music = [
       src: "mus-4"
    },
    {
-      name: "B-Complex ",
-      artist: "Beautiful Lies VIP",
+      name: "Beautiful Lies VIP",
+      artist: "B-Complex",
       cover: "img-5",
       src: "mus-5"
    },

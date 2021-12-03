@@ -35,8 +35,8 @@ html, body {
    border-radius: .5em;
    box-shadow: .2em .2em .6em grey;
    padding: 25px 30px;
-   // background: #f8f5c2;
-   background: linear-gradient(73deg, #f5e2d4, #f5cbaf, #ff9688); 
+   background: wheat;
+   // background: linear-gradient(73deg, #f5e2d4, #f5cbaf, #ff9688); 
 
    display: flex;
    flex-flow: column;
@@ -76,11 +76,16 @@ html, body {
       margin: 10px auto;
       background: rgb(255, 255, 255);
       box-shadow: 0 0 .2em .1em grey;
-
+      
       img {
          height: 100%;
          width: 100%;
          object-fit: cover;
+         transition: transform .8s ease-out;
+         transform: scale(1.1);
+         &:hover {
+            transform: scale(1);
+         }
       }
    }
 
@@ -92,7 +97,7 @@ html, body {
 
       .song-name{
          display: block;
-         margin-bottom: 10px;
+         
          font-size: .5em;
          font-weight: 500;
          opacity: 0.9;
@@ -109,6 +114,7 @@ html, body {
          display: block;
          font-size: .6em;
          max-height: 1em;
+         margin-top: 15px;
          cursor: pointer;
          white-space: nowrap;
          font-weight: 500;
@@ -276,8 +282,15 @@ html, body {
       }
       
    }
+
 }
 
+// .track-list {
+//    width: 300px;
+//    height: 100%;
+//    display: block;
+//    background-color: teal;
+// }
 .marquee-class {
    &:hover {
       animation: infinite 3.5s marquee alternate;
@@ -289,6 +302,6 @@ html, body {
       transform: translateX(0) 
    }
    100% {
-      transform: translateX(-30%);
+      transform: translateX(-5%);
    }
 }
