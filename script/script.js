@@ -13,9 +13,12 @@ const loopBtn = document.getElementById('loop')
 const playAndPause = document.getElementById('play')
 const nextBtn = document.getElementById('fwd')
 const prevBtn = document.getElementById('bwd')
+
 const volumeBtn = document.getElementById('vol')
 const volumeBlock = document.querySelector('.volume-block')
 const volumeInput = document.getElementById('volume-input')
+const volumeValue = document.getElementById('volume-value')
+
 const progressBlock = document.getElementById('progress-block')
 const progressBar = document.getElementById('progress-bar')
 
@@ -25,17 +28,33 @@ let songIndex = 0;
 
 window.addEventListener("load", () => {
    loadSong(songIndex)
-   if (userVolume) audioElement.volume = userVolume
+   if (window.localStorage.getItem(userVolume)) audioElement.volume = userVolume
+   console.log(audioElement.volume)
    volumeInput.value = userVolume * 100
-   console.log(userVolume)
+   renderVolume()
 })
 
 // function that load music
 function loadSong(index) {
+   progressBar.style.width = `${0}%`
    songName.innerText = music[index].name
    songArtist.innerText = music[index].artist
+   marqueeString(songName)
+   marqueeString(songArtist)
    songCover.src = `img/${music[index].cover}.jpg`
    audioElement.src = `audio/${music[index].src}.mp3`
+}
+
+
+// is autor or songname overflowed
+function isOverflowed(el) {
+   return el.scrollWidth > el.offsetWidth;
+}
+
+function marqueeString(textElem) {
+   isOverflowed(textElem) ?
+      textElem.classList.add('marquee-class') :
+      textElem.classList.remove('marquee-class')
 }
 
 // function that check is music playing atm
@@ -66,7 +85,6 @@ function pauseMusic() {
 function nextSong() {
    songIndex >= (music.length - 1) ? songIndex = 0 : songIndex++
    loadSong(songIndex)
-
    if (isPlaying()) playMusic()
 
 }
@@ -151,8 +169,9 @@ audioElement.addEventListener('timeupdate', (e) => {
 function setVolume() {
    return audioElement.volume = volumeInput.value / 100
 }
-volumeInput.addEventListener('input', (e) => {
+function renderVolume() {
    let volume = setVolume()
+   volumeValue.innerText = `${Math.round(volume * 100)}%`
    window.localStorage.setItem('user-volume', volume)
 
 
@@ -171,8 +190,9 @@ volumeInput.addEventListener('input', (e) => {
       volumeBtn.classList.remove('fa-volume-mute')
       volumeBtn.classList.add('fa-volume-up')
    }
+}
 
-})
+volumeInput.addEventListener('input', renderVolume)
 
 volumeBtn.addEventListener('click', (e) => {
    audioElement.muted = !audioElement.muted

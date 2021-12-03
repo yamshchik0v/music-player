@@ -183,6 +183,7 @@ html, body {
   text-align: center;
   margin: 15px 0 20px;
   color: black;
+  overflow: hidden;
 }
 
 .player .song-info .song-name {
@@ -211,8 +212,8 @@ html, body {
   display: block;
   font-size: .6em;
   max-height: 1em;
-  overflow: hidden;
   cursor: pointer;
+  white-space: nowrap;
   font-weight: 500;
   opacity: 0.9;
   -webkit-transition: .3s all;
@@ -337,7 +338,7 @@ html, body {
 }
 
 .player .media-controls .loop-track {
-  color: crimson;
+  color: #d62e4a;
 }
 
 .player .media-controls .volume-block {
@@ -350,27 +351,96 @@ html, body {
           align-items: center;
   position: absolute;
   width: 150px;
-  height: 20px;
+  height: 25px;
   top: 50%;
   right: 0;
+  opacity: .85;
   -webkit-transform: translate(100%, -50%);
           transform: translate(100%, -50%);
   background: linear-gradient(-73deg, #f5e2d4, #f5cbaf, #ff9688);
-  border: 1px solid rgba(165, 165, 165, 0.5);
+  -webkit-box-shadow: 0 0 4px 0 #d62e4a;
+          box-shadow: 0 0 4px 0 #d62e4a;
   border-radius: .3em;
   padding: 0 15px;
   margin-left: 50px;
 }
 
-.player .media-controls #volume-input {
+.player .media-controls .volume-block #volume-input {
   -webkit-appearance: none;
   width: 100%;
   height: 3px;
   background: rgba(128, 128, 128, 0.7);
+  margin-right: 30px;
+}
+
+.player .media-controls .volume-block #volume-input:hover {
+  opacity: 1;
+}
+
+.player .media-controls .volume-block #volume-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d62e4a;
+  cursor: pointer;
+}
+
+.player .media-controls .volume-block #volume-input::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.player .media-controls .volume-block #volume-value {
+  position: absolute;
+  right: 5px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .45em;
+  font-weight: 600;
+  line-height: .45em;
 }
 
 .player .media-controls .player-button:hover .volume-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.marquee-class:hover {
+  -webkit-animation: infinite 3.5s marquee alternate;
+          animation: infinite 3.5s marquee alternate;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+  }
 }

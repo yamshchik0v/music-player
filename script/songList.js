@@ -23,5 +23,16 @@ const music = [
       cover: "img-4",
       src: "mus-4"
    },
-
+   {
+      name: "B-Complex ",
+      artist: "Beautiful Lies VIP",
+      cover: "img-5",
+      src: "mus-5"
+   },
+   {
+      name: "Do it",
+      artist: "Despersion and Mindset",
+      cover: "img-6",
+      src: "mus-6"
+   },
 ]

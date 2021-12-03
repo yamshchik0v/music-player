@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 @import "_mixin";
 
+$MAIN_RED: #d62e4a;
+
 * {
   margin: 0;
   padding: 0;
@@ -52,7 +54,7 @@ html, body {
          transform: scale(.7);
          @include transitionHov( .1s, color, linear);
          &:hover {
-            color: #d62e4a
+            color: $MAIN_RED;
          }
 
       }
@@ -86,6 +88,8 @@ html, body {
       text-align: center;
       margin: 15px 0 20px;
       color: black;
+      overflow: hidden;
+
       .song-name{
          display: block;
          margin-bottom: 10px;
@@ -98,21 +102,20 @@ html, body {
          white-space: nowrap;
          @include transitionHov( .1s, color, linear);
          &:hover {   
-            color: #d62e4a;
+            color: $MAIN_RED;
          }
       }
       .song-artist{
          display: block;
          font-size: .6em;
          max-height: 1em;
-         overflow: hidden;
          cursor: pointer;
+         white-space: nowrap;
          font-weight: 500;
          opacity: 0.9;
          transition: .3s all;
          &:hover {
-
-            color: #d62e4a;
+            color: $MAIN_RED;
          }
       }
       
@@ -128,7 +131,7 @@ html, body {
       .progress-bar {
          height: 100%;
          width: 0%;
-         background: #d62e4a;
+         background: $MAIN_RED;
          border-radius: 1em;
          
          position: relative;
@@ -139,7 +142,7 @@ html, body {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color:  #d62e4a;
+            background-color:  $MAIN_RED;
             top: 50%;
             right: -5px;
             transform: translateY(-50%);
@@ -169,7 +172,7 @@ html, body {
          cursor: default;
          @include transitionHov( .1s, color, linear);
          &:hover {
-            color: #d62e4a;
+            color: $MAIN_RED;
          }
       }
       
@@ -201,14 +204,14 @@ html, body {
          }
 
          &:hover {
-            color: #d62e4a;
+            color: $MAIN_RED;
          }
 
          
       }
 
       .loop-track {
-         color: crimson;
+         color: $MAIN_RED;
       }
 
       .volume-block {
@@ -217,23 +220,56 @@ html, body {
          align-items: center;
          position: absolute;
          width: 150px;
-         height: 20px;
+         height: 25px;
          top: 50%;
          right: 0;
+         opacity: .85;
          transform: translate(100%, -50%);
          background: linear-gradient(-73deg, #f5e2d4, #f5cbaf, #ff9688); 
-         border: 1px solid rgba(165, 165, 165,.5);
+         box-shadow: 0 0 4px 0 $MAIN_RED;
          border-radius: .3em;
          padding: 0 15px;
          margin-left: 50px;
-      }
-      #volume-input {
-         -webkit-appearance: none;
-         width: 100%;
-         height: 3px;
-         background: rgba(128, 128, 128, 0.7); 
+
+         #volume-input {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 3px;
+            background: rgba(128, 128, 128, 0.7); 
+            margin-right: 30px;
+            &:hover {
+               opacity: 1;
+            }
+            &::-webkit-slider-thumb {
+               -webkit-appearance: none;
+               appearance: none;
+               width: 10px;
+               height: 10px;
+               border-radius: 50%;
+               background: $MAIN_RED;
+               cursor: pointer;
+             }
+             &::-moz-range-thumb {
+               width: 25px;
+               height: 25px;
+               background: #04AA6D;
+               cursor: pointer;
+             }
+         }
+            #volume-value {
+               position: absolute;
+               right: 5px;
+               z-index: 2;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               font-size: .45em;
+               font-weight: 600;
+               line-height: .45em;
+            }
       }
      
+      
 
       .player-button:hover .volume-block {
          display: flex;
@@ -242,3 +278,17 @@ html, body {
    }
 }
 
+.marquee-class {
+   &:hover {
+      animation: infinite 3.5s marquee alternate;
+   }
+}
+
+@keyframes marquee {
+   0% {
+      transform: translateX(0) 
+   }
+   100% {
+      transform: translateX(-30%);
+   }
+}
