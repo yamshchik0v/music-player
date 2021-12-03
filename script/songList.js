@@ -1,4 +1,4 @@
-const music = [
+export const music = [
    {
       name: "In And Out Of Love",
       artist: "Armin van Buuren",
@@ -35,4 +35,4 @@ const music = [
       cover: "img-6",
       src: "mus-6"
    },
-]
+];
