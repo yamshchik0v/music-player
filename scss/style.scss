@@ -1,9 +1,9 @@
 @import "_nullstyle";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 @import "_mixin";
-
-$MAIN_RED: #d62e4a;
-
+// #d62e4a
+$MAIN_COLOR: lightseagreen;
+$MAIN_WHITE: #ecdfdf;
 * {
   margin: 0;
   padding: 0;
@@ -15,74 +15,40 @@ html, body {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 32px;
   flex-flow: column nowrap;
-}
-
-.title {
-   margin: 15px 0;
-   color: teal;
-   text-align: center;
-   font-weight: 700;
+  background: linear-gradient(73deg, #1d1a18, #272726); 
 }
 
 .player {
+   
+   display: flex;
+   height: 100%;
+   width: 1024px;
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-
-   margin: 0 auto;
-
-   border-radius: .5em;
-   box-shadow: .2em .2em .6em grey;
-   padding: 25px 30px;
-   background: wheat;
-   // background: linear-gradient(73deg, #f5e2d4, #f5cbaf, #ff9688); 
-
-   display: flex;
-   flex-flow: column;
+   
    justify-content: center;
-   width: 340px;
-   .player-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 0 10px;
-      color: rgba(73, 69, 69, 0.9);
-
-      i {
-         cursor: pointer;
-         transform: scale(.7);
-         @include transitionHov( .1s, color, linear);
-         &:hover {
-            color: $MAIN_RED;
-         }
-
-      }
-
-      .player-title {
-         text-align: center;
-         font-size: .5em;
-         font-weight: 700;
-         cursor: default;
-         }
-   }
+   flex-flow: column;
 
    .cover {
-      border-radius: .3em;
+
+      height: 180px;
+      width: 180px;
       overflow: hidden;
+      border-radius: 50%;
+      margin: 10px auto 40px;
       background: cover center;
-      height: 230px;
-      width: 90%;
-      margin: 10px auto;
-      background: rgb(255, 255, 255);
-      box-shadow: 0 0 .2em .1em grey;
+      box-shadow: 0 0 5px 0 gray;
       
       img {
+
          height: 100%;
          width: 100%;
          object-fit: cover;
-         transition: transform .8s ease-out;
          transform: scale(1.1);
+         transition: transform .5s ease-out;
+
          &:hover {
             transform: scale(1);
          }
@@ -91,44 +57,40 @@ html, body {
 
    .song-info {
       text-align: center;
-      margin: 15px 0 20px;
-      color: black;
-      overflow: hidden;
+      margin: 15px 0 50px;
+      font-size: 1.5em;
+      opacity: 0.9;
+      white-space: wrap;
+
+      color: $MAIN_WHITE;
 
       .song-name{
          display: block;
-         
          font-size: .5em;
-         font-weight: 500;
-         opacity: 0.9;
          cursor: default;
          min-width: 100%;
          max-height: .5em;
-         white-space: nowrap;
+
          @include transitionHov( .1s, color, linear);
          &:hover {   
-            color: $MAIN_RED;
+            color: $MAIN_COLOR;
          }
       }
       .song-artist{
          display: block;
          font-size: .6em;
-         max-height: 1em;
-         margin-top: 15px;
+         margin-top: 25px;
          cursor: pointer;
-         white-space: nowrap;
-         font-weight: 500;
-         opacity: 0.9;
-         transition: .3s all;
-         &:hover {
-            color: $MAIN_RED;
+         @include transitionHov( .1s, color, linear);
+         &:hover {   
+            color: $MAIN_COLOR;
          }
       }
       
    }
 
    .progress-block {
-      height: 4px;
+      height: 2px;
       width: 100%;
       background: rgba(128, 128, 128, 0.7);
       border-radius: 30px;
@@ -137,7 +99,7 @@ html, body {
       .progress-bar {
          height: 100%;
          width: 0%;
-         background: $MAIN_RED;
+         background: $MAIN_COLOR;
          border-radius: 1em;
          
          position: relative;
@@ -148,7 +110,7 @@ html, body {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color:  $MAIN_RED;
+            background-color:  $MAIN_COLOR;
             top: 50%;
             right: -5px;
             transform: translateY(-50%);
@@ -168,17 +130,18 @@ html, body {
 
    
    .time-block {
-      margin: 5px 0 ;
+      margin: 10px 0 ;
       width: 100%;
       display: flex;
       justify-content: space-between;
+      color: $MAIN_WHITE;
       span {
-         font-size: .45em;
+         font-size: .5em;
          font-weight: 600;
          cursor: default;
          @include transitionHov( .1s, color, linear);
          &:hover {
-            color: $MAIN_RED;
+            color: $MAIN_COLOR;
          }
       }
       
@@ -192,32 +155,35 @@ html, body {
       justify-content: space-between;
       margin: 20px 0 0;
       
+      
+
       .player-button {
          position: relative;
          min-width: 20%;
          display: flex;
          justify-content: center;
       }
-
-      i{
-         transform: scale(.8);
-         color:rgba(73, 69, 69, 0.9);
+      
+      svg {
+         fill: $MAIN_WHITE;
+         transform: scale(1);
          cursor: pointer;
-         @include  transitionHov( .1s, color, linear);
-
+         @include  transitionHov( .1s, fill, linear);
          &:active {
-            transform: scale(.75);
+            transform: scale(.90);
          }
 
          &:hover {
-            color: $MAIN_RED;
+            fill: $MAIN_COLOR;
          }
-
-         
       }
-
+      
+      
       .loop-track {
-         color: $MAIN_RED;
+         fill: teal;
+         &:after {
+            content: '1'
+         }
       }
 
       .volume-block {
@@ -230,9 +196,8 @@ html, body {
          top: 50%;
          right: 0;
          opacity: .85;
-         transform: translate(100%, -50%);
-         background: linear-gradient(-73deg, #f5e2d4, #f5cbaf, #ff9688); 
-         box-shadow: 0 0 4px 0 $MAIN_RED;
+         transform: translate(65%, -50%);
+         background: $MAIN_WHITE; 
          border-radius: .3em;
          padding: 0 15px;
          margin-left: 50px;
@@ -252,20 +217,20 @@ html, body {
                width: 10px;
                height: 10px;
                border-radius: 50%;
-               background: $MAIN_RED;
+               background: $MAIN_COLOR;
                cursor: pointer;
              }
              &::-moz-range-thumb {
                width: 25px;
                height: 25px;
-               background: #04AA6D;
+               background: $MAIN_COLOR;
                cursor: pointer;
              }
          }
             #volume-value {
                position: absolute;
                right: 5px;
-               z-index: 2;
+               z-index: 10;
                display: flex;
                justify-content: center;
                align-items: center;
@@ -282,18 +247,17 @@ html, body {
       }
       
    }
-
 }
 
-// .track-list {
-//    width: 300px;
-//    height: 100%;
-//    display: block;
-//    background-color: teal;
-// }
+.track-list-block {
+   display: block;
+   width: 100%;
+   background: teal;
+}
+
 .marquee-class {
    &:hover {
-      animation: infinite 3.5s marquee alternate;
+      animation: infinite 3s marquee alternate;
    }
 }
 
@@ -303,5 +267,63 @@ html, body {
    }
    100% {
       transform: translateX(-5%);
+   }
+}
+
+@media (max-width: 1224px) {
+   .player {
+      width: 660px;
+
+      .volume-block {
+         display: none;
+         position: absolute;
+         width: 150px;
+         height: 25px;
+         top: 50%;
+         right: 0;
+         opacity: .85;
+         transform: translate(65%, -50%);
+      }
+   }
+}
+
+
+@media (max-width: 860px) {
+   .player {
+      width: 580px;
+
+   }
+
+}
+
+@media (max-width: 680px) {
+   
+   .player {
+      width: 400px;
+      .cover {
+         width: 130px;
+         height: 130px;
+      }
+      
+      .song-info {
+         font-size: 1em;
+      }
+      
+      .media-controls {
+         svg {
+            width: 28px;
+         }
+      }
+   }
+}
+
+@media (max-width: 440px) {
+   .player {
+      width: 260px;
+   }
+   .media-controls {
+      svg {
+         width: 24px;
+      }
    }
 }

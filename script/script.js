@@ -1,11 +1,15 @@
 const player = document.querySelector('.player')
-console.log(music)
-// const trackListElem = document.getElementById('.player-list')
-// const openListElem = document.getElementById('.open-list')
 const userVolume = JSON.parse(window.localStorage.getItem('user-volume'))
+
+
+const pausePath = '<path d="M11 22h-4v-20h4v20zm6-20h-4v20h4v-20z"/>'
+const playPath = '<path d="M3 22v-20l18 10-18 10z"/>'
+// volume
+const mutedPath = '<path d="M22 1.269l-18.455 22.731-1.545-1.269 3.841-4.731h-1.827v-10h4.986v6.091l2.014-2.463v-3.628l5.365-2.981 4.076-5.019 1.545 1.269zm-10.986 15.926v.805l8.986 5v-16.873l-8.986 11.068z"/>'
+const normalPath = '<path d="M9 18h-7v-12h7v12zm2-12v12l11 6v-24l-11 6z"/>'
+const loudPath = '<path d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z"/>'
 // song info
 
-const title = document.getElementById('pTitle')
 const songCover = document.getElementById('player-cover')
 const songName = document.getElementById('name')
 const songArtist = document.getElementById('artist')
@@ -69,17 +73,14 @@ function isPlaying() {
 
 function playMusic() {
    audioElement.classList.remove('paused')
-   title.innerText = 'Playing Now'
-   playAndPause.classList.remove('fa-play')
-   playAndPause.classList.add('fa-pause')
+   playAndPause.innerHTML = pausePath
+
    audioElement.play()
 }
 
 function pauseMusic() {
    audioElement.classList.add('paused')
-   title.innerText = 'Paused'
-   playAndPause.classList.remove('fa-pause')
-   playAndPause.classList.add('fa-play')
+   playAndPause.innerHTML = playPath
    audioElement.pause()
 }
 
@@ -180,18 +181,15 @@ function renderVolume() {
 
    if (!volume) {
       audioElement.muted = true
-      volumeBtn.classList.add('fa-volume-mute')
+      volumeBtn.innerHTML = mutedPath
    }
-   else if (volume > 0 && volume < .15) {
+   else if (volume > 0 && volume < .35) {
       audioElement.muted = false
-      volumeBtn.classList.remove('fa-volume-mute')
-      volumeBtn.classList.add('fa-volume-down')
+      volumeBtn.innerHTML = normalPath
    }
    else {
       audioElement.muted = false
-      volumeBtn.classList.remove('fa-volume-down')
-      volumeBtn.classList.remove('fa-volume-mute')
-      volumeBtn.classList.add('fa-volume-up')
+      volumeBtn.innerHTML = loudPath
    }
 }
 
@@ -199,19 +197,12 @@ volumeInput.addEventListener('input', renderVolume)
 
 volumeBtn.addEventListener('click', (e) => {
    audioElement.muted = !audioElement.muted
-   volumeBtn.classList.toggle('fa-volume-mute')
+   audioElement.muted ? volumeBtn.innerHTML = mutedPath : renderVolume()
 })
 
 // loop
 loopBtn.addEventListener('click', () => {
-   audioElement.loop ? loopBtn.title = "loop current track" : loopBtn.title = "track looped"
    audioElement.loop = !audioElement.loop
    loopBtn.classList.toggle('loop-track')
-})
-
-// track list functionality
-
-openListElem.addEventListener('click', () => {
-   trackListElem.classList.toggle('opened')
 })
 

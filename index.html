@@ -14,13 +14,12 @@
 
 <body>
 
+   <article class="track-list-block" id="player-list">
+      <ul="song-list">
+         </ul>
+   </article>
    <main class="player">
-      <!-- <section class="track-list" id="player-list"></section> -->
-      <section class="player-header">
-         <i class="arrow fas fa-chevron-left" id="open-list"></i>
-         <h2 class="player-title" id="pTitle">Now Playing</h2>
-         <i class="dots fas fa-ellipsis-h"></i>
-      </section>
+
       <section class="cover"><img src="" alt="" id="player-cover">
       </section>
       <section id="song-info" class="song-info">
@@ -37,15 +36,36 @@
          <span id="audio-duration" class="time-el"></span>
       </section>
       <ul class="media-controls">
-         <li class="player-button"><i id="loop" title="loop current track" class="fas fa-infinity"></i></li>
 
-         <li class="player-button"><i id="bwd" class="fas fa-backward"></i></li>
+         <li class="player-button">
+            <svg id="loop" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+               <path d="M21 9h2v11h-17v3l-6-4 6-4v3h15v-9zm-18-3h15v3l6-4-6-4v3h-17v11h2v-9z" />
+            </svg>
+         </li>
 
-         <li class="player-button"><i id="play" class="fas fa-play"></i></li>
+         <li class="player-button">
+            <svg id="bwd" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M20 19.9998L40 33.3332V6.6665L20 19.9998ZM20 6.6665V33.3332L9.53674e-07 19.9998L20 6.6665Z" />
+            </svg>
 
-         <li class="player-button"><i id="fwd" class="fas fa-forward"></i></li>
+         </li>
 
-         <li class="player-button"><i id="vol" class="fas fa-volume-up"></i>
+         <li class="player-button">
+            <svg id="play" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+               <path d="M3 22v-20l18 10-18 10z" />
+            </svg>
+         </li>
+
+         <li class="player-button">
+            <svg id="fwd" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+               <path d="M12 12l-12 8v-16l12 8zm0-8v16l12-8-12-8z" />
+            </svg>
+         </li>
+
+         <li class="player-button">
+            <svg id="vol" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+               <path d="M9 18h-7v-12h7v12zm2-12v12l11 6v-24l-11 6z" />
+            </svg>
             <div class="volume-block">
                <input type="range" id="volume-input" min="0" max="100">
                <div id="volume-value"></div>
@@ -54,7 +74,9 @@
 
 
       </ul>
+
    </main>
+
 
    <script src="script/songList.js"></script>
    <script src="script/script.js"></script>
