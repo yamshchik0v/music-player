@@ -205,4 +205,3 @@ loopBtn.addEventListener('click', () => {
    audioElement.loop = !audioElement.loop
    loopBtn.classList.toggle('loop-track')
 })
-

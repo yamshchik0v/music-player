@@ -1,0 +1,73 @@
+@media (max-width: 1224px) {
+   .player {
+      justify-content: center;
+      width: 660px;
+
+   }
+   .volume-block {
+
+      position: absolute;
+      top: 10%;
+      right: 0;
+      opacity: .85;
+      transform: translate(65%, -50%);
+      background: $MAIN_WHITE; 
+      border-radius: .3em;
+      padding: 0 15px;
+      margin-left: 50px;
+   }
+}
+
+
+@media (max-width: 860px) {
+   .player {
+      width: 70%;
+
+   }
+
+}
+
+@media (max-width: 680px) {
+   
+   .player {
+      // width: 400px;
+      
+      .list-button-block{
+         .list-button{
+            padding: 2px;
+         }
+      }
+
+      .cover {
+         width: 130px;
+         height: 130px;
+      }
+      
+      .song-info {
+         font-size: 1em;
+      }
+      
+      .media-controls {
+         svg {
+            width: 28px;
+         }
+      }
+   }
+}
+
+@media (max-width: 440px) {
+   .player {
+      width: 260px;
+   }
+   .media-controls {
+      svg {
+         width: 24px;
+      }
+   }
+}
+
+@media (max-height: 510px) {
+   .cover {
+      display: none;
+   }
+}

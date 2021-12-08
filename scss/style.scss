@@ -1,9 +1,12 @@
 @import "_nullstyle";
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 @import "_mixin";
+
 // #d62e4a
 $MAIN_COLOR: lightseagreen;
 $MAIN_WHITE: #ecdfdf;
+
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +33,27 @@ html, body {
    
    justify-content: center;
    flex-flow: column;
+
+   .list-button-block{
+      .list-button {
+         display: flex;
+         align-self: flex-start;
+         justify-content: center;
+         align-items: center;
+         padding: 7px;
+         border-radius: 50%;
+         fill: $MAIN_WHITE;
+         border: 3px solid $MAIN_WHITE;
+         background: none;
+         transition: .1s all linear;
+         margin: 10px 10px 0 0;
+         &:hover {
+            fill: $MAIN_COLOR;
+            border-color: $MAIN_COLOR;
+
+         }
+      }
+   }
 
    .cover {
 
@@ -110,7 +134,7 @@ html, body {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color:  $MAIN_COLOR;
+            background-color: $MAIN_COLOR;
             top: 50%;
             right: -5px;
             transform: translateY(-50%);
@@ -118,7 +142,6 @@ html, body {
             opacity: 0;
             border-left: none;
             @include transitionHov( .1s, opacity, linear);
-
          }
 
       }      
@@ -181,6 +204,7 @@ html, body {
       
       .loop-track {
          fill: teal;
+         // fill: purple;
          &:after {
             content: '1'
          }
@@ -270,60 +294,4 @@ html, body {
    }
 }
 
-@media (max-width: 1224px) {
-   .player {
-      width: 660px;
-
-      .volume-block {
-         display: none;
-         position: absolute;
-         width: 150px;
-         height: 25px;
-         top: 50%;
-         right: 0;
-         opacity: .85;
-         transform: translate(65%, -50%);
-      }
-   }
-}
-
-
-@media (max-width: 860px) {
-   .player {
-      width: 580px;
-
-   }
-
-}
-
-@media (max-width: 680px) {
-   
-   .player {
-      width: 400px;
-      .cover {
-         width: 130px;
-         height: 130px;
-      }
-      
-      .song-info {
-         font-size: 1em;
-      }
-      
-      .media-controls {
-         svg {
-            width: 28px;
-         }
-      }
-   }
-}
-
-@media (max-width: 440px) {
-   .player {
-      width: 260px;
-   }
-   .media-controls {
-      svg {
-         width: 24px;
-      }
-   }
-}
+@import "_media";
