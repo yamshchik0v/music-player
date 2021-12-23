@@ -15,10 +15,11 @@ $MAIN_WHITE: #ecdfdf;
 }
 
 html, body {
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 32px;
-  flex-flow: column nowrap;
-  background: linear-gradient(73deg, #1d1a18, #272726); 
+   width: 100vw;
+   font-family: 'Roboto', Arial, sans-serif;
+   font-size: 32px;
+   flex-flow: column nowrap;
+   background: linear-gradient(73deg, #1d1a18, #272726); 
 }
 
 .player {
@@ -204,7 +205,6 @@ html, body {
       
       .loop-track {
          fill: teal;
-         // fill: purple;
          &:after {
             content: '1'
          }
@@ -218,13 +218,12 @@ html, body {
          width: 150px;
          height: 25px;
          top: 50%;
-         right: 0;
+         left: 20%;
          opacity: .85;
          transform: translate(65%, -50%);
          background: $MAIN_WHITE; 
          border-radius: .3em;
          padding: 0 15px;
-         margin-left: 50px;
 
          #volume-input {
             -webkit-appearance: none;

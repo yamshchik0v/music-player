@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 html, body {
+  width: 100vw;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 32px;
   -webkit-box-orient: vertical;
@@ -346,14 +347,13 @@ html, body {
   width: 150px;
   height: 25px;
   top: 50%;
-  right: 0;
+  left: 20%;
   opacity: .85;
   -webkit-transform: translate(65%, -50%);
           transform: translate(65%, -50%);
   background: #ecdfdf;
   border-radius: .3em;
   padding: 0 15px;
-  margin-left: 50px;
 }
 
 .player .media-controls .volume-block #volume-input {
@@ -443,23 +443,29 @@ html, body {
 }
 
 @media (max-width: 1224px) {
+  body {
+    overflow-x: hidden;
+  }
   .player {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     width: 660px;
   }
-  .volume-block {
-    position: absolute;
-    top: 10%;
+  .player .media-controls .volume-block {
     right: 0;
     opacity: .85;
     -webkit-transform: translate(65%, -50%);
             transform: translate(65%, -50%);
-    background: #ecdfdf;
-    border-radius: .3em;
-    padding: 0 15px;
-    margin-left: 50px;
+  }
+}
+
+@media (max-width: 972px) {
+  .player .media-controls .volume-block {
+    top: -100%;
+    left: 30%;
+    -webkit-transform: translate(0, -50%) rotate(-90deg);
+            transform: translate(0, -50%) rotate(-90deg);
   }
 }
 
@@ -470,6 +476,9 @@ html, body {
 }
 
 @media (max-width: 680px) {
+  .player svg {
+    width: 28px;
+  }
   .player .list-button-block .list-button {
     padding: 2px;
   }
@@ -489,8 +498,12 @@ html, body {
   .player {
     width: 260px;
   }
-  .media-controls svg {
+  .player .media-controls .volume-block {
+    left: -30%;
+  }
+  .player .media-controls svg {
     width: 24px;
+    left: 0;
   }
 }
 
